@@ -31,7 +31,7 @@ yarn start
 
 - yarn : J'utilise yarn comme gestionnaire de paquets car je le trouve plus rapide que npm et nous l'utilisons en cours.
 
--webpack : J'utilise webpack pour "bundler" qui permet de transpiler/compiler le code pour qu'il soit valide pour une machine et qu'il soit compatible avec les anciennes version de js grâce à Babbel.Cela nous permet aussi d'avoir un 'server' de production. Je le préfère à parcel car il est plus configurable et nous l'utilisons en cours.
+- webpack : J'utilise webpack pour "bundler" qui permet de transpiler/compiler le code pour qu'il soit valide pour une machine et qu'il soit compatible avec les anciennes version de js grâce à Babbel.Cela nous permet aussi d'avoir un 'server' de production. Je le préfère à parcel car il est plus configurable et nous l'utilisons en cours.
 
-- Design : Pour le design j'ai voulu utiliser 'Material-ui' car je trouve qu'il est plus complémentaire avec React et suis les règles de google Material Design. J'ai cependant vu que vous utilisiez Bootstrap pour votre site internet et je peux aussi l'utilisé ayant déjà réaliser plusieurs projet avec.
+- Design : Pour le design j'ai voulu utiliser 'Material-ui' car je trouve qu'il est plus complémentaire avec React et suit les règles de google Material Design. J'ai cependant vu que vous utilisiez Bootstrap pour votre site internet et je peux aussi l'utilisé ayant déjà réaliser plusieurs projet avec.
 
