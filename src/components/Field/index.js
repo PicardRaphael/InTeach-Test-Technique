@@ -4,8 +4,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Styles et assets
+/* Material-UI import */
+import Input from '@material-ui/core/Input';
+import InputLabel from '@material-ui/core/InputLabel';
 
+// Styles et assets
 import './field.sass';
 
 const Field = ({
@@ -14,15 +17,23 @@ const Field = ({
   type,
   value,
   onChange
-}) => (
-  <input
-    name={name}
-    type={type}
-    placeholder={placeholder}
-    value={value}
-    onChange={onChange}
-  />
-);
+}) => {
+  return (
+    <React.Fragment>
+      <InputLabel className='label-input' htmlFor={name}>
+        {placeholder}
+      </InputLabel>
+      <Input
+        id={name}
+        name={name}
+        type={type}
+        value={value}
+        onChange={onChange}
+      />
+    </React.Fragment>
+  );
+};
+
 Field.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,

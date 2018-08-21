@@ -40,12 +40,13 @@
     "build:prod:win": "set NODE_ENV=production && webpack --mode production"
   },
   "dependencies": {
+    "@material-ui/core": "latest",
+    "@material-ui/icons": "latest",
+    "axios": "^0.18.0",
     "babel-polyfill": "*",
     "classnames": "^2.2.6",
     "material-ui": "^0.20.2",
     "react": "*",
-    "react-dom": "*",
-    "@material-ui/icons": "latest",
-    "@material-ui/core": "latest"
+    "react-dom": "*"
   }
 }

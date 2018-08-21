@@ -2,6 +2,7 @@
  * Import
  */
 import React from 'react';
+import axios from 'axios';
 
 /**
  * Local import
@@ -30,8 +31,38 @@ import './app.sass';
  */
 class App extends React.Component {
   state = {
+    view: 'modules',
     data
   };
+
+  /**
+   * Méthode du cycle de vie exécutée une seule fois, lorsque le composant
+   * est monté dans la page (rendu initial).
+   * - on écrase l'état actuel et le chemin (path) actuel, pour que la page de
+   *   départ de l'application soit gérée au niveau de l'historique de
+   *   navigation.
+   * - on met en place un écouteur d'événement qui nous permettra de réagir
+   *   au changement de chemin dans l'URL. On réagira en exploitant une
+   *   information stockée pour chaque entrée de l'historique de navigation,
+   *   afin de refresh le composant React.
+   */
+  componentDidMount = () => {
+    window.history.replaceState({ view: 'modules' }, null, '/view/modules');
+    window.addEventListener('popstate', (evt) => {
+      this.setState(evt.state);
+    });
+  }
+
+  /**
+   * On change de vue React. Au passage, on ajoute une entrée dans l'historique
+   * de navigation, en stockant la vue au sens React vers laquelle on se dirige.
+   */
+  changeView = newView => (evt) => {
+    const browserState = { view: newView };
+    window.history.pushState(browserState, null, `/view/${newView}`);
+    console.log('changeView', window.history.state);
+    this.setState(browserState);
+  }
 
   /**
    * Callback qui permet de gérer les Input
@@ -64,24 +95,36 @@ class App extends React.Component {
   /**
    * Callback qui permet de gérer la soumission de Formulaire
    */
-  handleSubmit = (evt) => {
+  creatModule = () => {
     // On empêche le comportement par défaut du navigateur (Refresh de la page au submit).
-    evt.preventDefault();
     console.log('bien reçu !');
   }
 
   render() {
-    const { data } = this.state;
+    const { view, data } = this.state;
     return (
       <div id="app">
         <Header />
-        <Tooltip title='Ajouter un module'>
-          <Button variant="fab" color="secondary" className='addIcon'>
-            <AddIcon />
-          </Button>
-        </Tooltip>
+        { view === 'form-modules' && (
+          <Form
+            onSubmit={this.creatModule}
+            fields={this.fields()}
+            onChangeView={this.changeView}/>
+        )}
+        { view === 'modules' && (
+          <Tooltip title='Ajouter un module'>
+            <Button
+              variant="fab"
+              color="secondary"
+              className='addIcon'
+              onClick={this.changeView('form-modules')}
+            >
+              <AddIcon />
+            </Button>
+          </Tooltip>
+        )}
         <Module data={data} />
-        <Form onSubmit={this.handleSubmit} fields={this.fields()}/>
+
         <Footer />
       </div>
     );

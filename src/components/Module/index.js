@@ -8,17 +8,30 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
+import Icon from '@material-ui/core/Icon';
+import DeleteIcon from '@material-ui/icons/Delete';
+import IconButton from '@material-ui/core/IconButton';
+
 import './module.sass';
 
 const Module = ({data}) => {
+  console.log(data);
   const convertModuleToJSX = (mod) => (
-    <Grid key={mod.id} item xs={3}>
+    <Grid key={mod.id} item>
       <Card className='card-module'>
         <CardContent>
-          <Typography variant='headline' align='center' color='error'>
-            {mod.title}
-          </Typography>
-          <Button size="small" color="primary">
+          <div className='test'>
+            <Typography variant='headline' align='center'>
+              {mod.title}
+            </Typography>
+            <IconButton className='icon' variant="fab" aria-label="Delete" color='secondary'>
+              <DeleteIcon />
+            </IconButton>
+            <IconButton className='icon'variant="fab" aria-label="Edit" color="primary">
+              <Icon>edit_icon</Icon>
+            </IconButton>
+          </div>
+          <Button size="small" color="primary" className='lessons'>
           leçons : {mod.lessons.length}
           </Button>
         </CardContent>
@@ -34,8 +47,7 @@ const Module = ({data}) => {
           {moduleJSX}
         </Grid>
       </Grid>
-    </Grid>
-    
+    </Grid>  
   );
 };
 
