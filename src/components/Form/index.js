@@ -2,7 +2,7 @@
  * Import
  */
 import React from 'react';
-
+import PropTypes from 'prop-types';
 /**
  * Local import
  */
@@ -20,4 +20,7 @@ const Form = ({
   </form>
 );
 
+Form.propTypes = {
+  fields: PropTypes.func.isRequired
+};
 export default Form;
