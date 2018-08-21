@@ -60,7 +60,6 @@ class App extends React.Component {
   changeView = newView => (evt) => {
     const browserState = { view: newView };
     window.history.pushState(browserState, null, `/view/${newView}`);
-    console.log('changeView', window.history.state);
     this.setState(browserState);
   }
 
@@ -95,9 +94,27 @@ class App extends React.Component {
   /**
    * Callback qui permet de gérer la soumission de Formulaire
    */
-  creatModule = () => {
-    // On empêche le comportement par défaut du navigateur (Refresh de la page au submit).
-    console.log('bien reçu !');
+  creatModule = (title) => {
+    const allIds = this.state.data.map(mod => mod.id);
+    const newId = allIds.length ? Math.max(...allIds) + 1 : 0;
+    const newModule = {
+      id: newId,
+      title: title,
+      lessons: []
+    };
+    const data = [...this.state.data, newModule];
+    this.setState({
+      data,
+      view: 'modules'
+    });
+  }
+
+  /**
+   * Callback qui permet de gérer la supression d'un module
+   */
+  deletModule = id => () => {
+    const data = this.state.data.filter(mod => mod.id !== id);
+    this.setState({ data });
   }
 
   render() {
@@ -123,7 +140,7 @@ class App extends React.Component {
             </Button>
           </Tooltip>
         )}
-        <Module data={data} />
+        <Module data={data} onDeletModule={this.deletModule}/>
 
         <Footer />
       </div>

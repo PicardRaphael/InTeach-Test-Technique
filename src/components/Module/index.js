@@ -14,8 +14,8 @@ import IconButton from '@material-ui/core/IconButton';
 
 import './module.sass';
 
-const Module = ({data}) => {
-  console.log(data);
+const Module = ({data, onDeletModule}) => {
+  //console.log(data);
   const convertModuleToJSX = (mod) => (
     <Grid key={mod.id} item>
       <Card className='card-module'>
@@ -24,7 +24,12 @@ const Module = ({data}) => {
             <Typography variant='headline' align='center'>
               {mod.title}
             </Typography>
-            <IconButton className='icon' variant="fab" aria-label="Delete" color='secondary'>
+            <IconButton
+              className='icon'
+              variant="fab"
+              aria-label="Delete"
+              color='secondary'
+              onClick={onDeletModule(mod.id)}>
               <DeleteIcon />
             </IconButton>
             <IconButton className='icon'variant="fab" aria-label="Edit" color="primary">

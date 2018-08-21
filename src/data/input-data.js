@@ -1,6 +1,6 @@
 export default [
   {
     name: 'title',
-    placeholder: 'Titre du module'
+    placeholder: 'Titre du module',
   }
 ];

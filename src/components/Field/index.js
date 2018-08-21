@@ -24,6 +24,7 @@ const Field = ({
         {placeholder}
       </InputLabel>
       <Input
+        className='input-field'
         id={name}
         name={name}
         type={type}

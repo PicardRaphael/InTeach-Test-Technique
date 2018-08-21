@@ -6,7 +6,7 @@ Vous trouvez ci-joint le test technique que vous m'avez demandé :
 Développez une petite application web (en JS) pour proposer aux utilisateurs une interface de gestion de modules de formation. Les contraintes sont les suivantes:
 - Charger les données depuis une fixture (au moins 5 modules)
 - Afficher les modules
-- Avoir la possibilité d'ajouter / e?diter / supprimer un module
+- Avoir la possibilité d'ajouter / éditer / supprimer un module
 
 Bonus 1 : Utiliser React
 Bonus 2 : Ecrire en ES6

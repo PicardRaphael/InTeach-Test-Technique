@@ -47,6 +47,7 @@
     "classnames": "^2.2.6",
     "material-ui": "^0.20.2",
     "react": "*",
-    "react-dom": "*"
+    "react-dom": "*",
+    "react-material-ui-form-validator": "^2.0.1"
   }
 }
