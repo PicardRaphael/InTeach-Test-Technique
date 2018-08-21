@@ -7,6 +7,13 @@ import React from 'react';
  * Local import
  */
 // Composants
+import Header from 'src/components/Header';
+import Module from 'src/components/Module';
+import Form from 'src/components/Form';
+import Footer from 'src/components/Footer';
+import Field from 'src/components/Field';
+// Data
+import inputData from 'src/data/input-data';
 
 // Styles et assets
 import './app.sass';
@@ -14,12 +21,40 @@ import './app.sass';
 /**
  * Code
  */
-const App = () => (
-  <div id="app">
-    <h1 id="app-title">Modèle React</h1>
-    <p id="app-content">Hello tout le monde !</p>
-  </div>
-);
+class App extends React.Component {
+  state = {};
+
+  handleInputChange = (evt) => {
+    const { name, value } = evt.target;
+    this.setState({
+      [name]: value
+    });
+  }
+
+  fields = () => {
+    return inputData.map(field => {
+      return (
+        <Field
+          key={field.name}
+          {...field}
+          value={this.state[field.name]}
+          onChange={this.handleInputChange}
+        />
+      );
+    });
+  }
+
+  render() {
+    return (
+      <div id="app">
+        <Header />
+        <Module />
+        <Form fields={this.fields}/>
+        <Footer />
+      </div>
+    );
+  }
+}
 
 /**
  * Export
