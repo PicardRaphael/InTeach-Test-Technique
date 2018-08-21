@@ -13,8 +13,14 @@ import Form from 'src/components/Form';
 import Footer from 'src/components/Footer';
 import Field from 'src/components/Field';
 
+/* Material-UI import */
+import Button from '@material-ui/core/Button';
+import AddIcon from '@material-ui/icons/Add';
+import Tooltip from '@material-ui/core/Tooltip';
+
 // Data
 import inputData from 'src/data/input-data';
+import data from 'src/data/data';
 
 // Styles et assets
 import './app.sass';
@@ -23,7 +29,9 @@ import './app.sass';
  * Code
  */
 class App extends React.Component {
-  state = {};
+  state = {
+    data
+  };
 
   /**
    * Callback qui permet de gérer les Input
@@ -37,7 +45,7 @@ class App extends React.Component {
   }
 
   /**
-   * Callback qui permet de boucler sur le fichier contenant les inputs
+   * Fonction qui permet de boucler sur le fichier contenant les inputs
    * but: Afficher le nombre de input inscrit dans input-data
    */
   fields = () => {
@@ -63,11 +71,17 @@ class App extends React.Component {
   }
 
   render() {
+    const { data } = this.state;
     return (
       <div id="app">
         <Header />
-        <Module />
-        <Form onSubmit={this.handleSubmit} fields={this.fields}/>
+        <Tooltip title='Ajouter un module'>
+          <Button variant="fab" color="secondary" className='addIcon'>
+            <AddIcon />
+          </Button>
+        </Tooltip>
+        <Module data={data} />
+        <Form onSubmit={this.handleSubmit} fields={this.fields()}/>
         <Footer />
       </div>
     );
