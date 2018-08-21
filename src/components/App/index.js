@@ -25,6 +25,10 @@ import './app.sass';
 class App extends React.Component {
   state = {};
 
+  /**
+   * Callback qui permet de gérer les Input
+   * but :  modifier le state suivant ce qui est inscrit dans le input
+   */
   handleInputChange = (evt) => {
     const { name, value } = evt.target;
     this.setState({
@@ -32,6 +36,10 @@ class App extends React.Component {
     });
   }
 
+  /**
+   * Callback qui permet de boucler sur le fichier contenant les inputs
+   * but: Afficher le nombre de input inscrit dans input-data
+   */
   fields = () => {
     return inputData.map(field => {
       return (
@@ -45,12 +53,21 @@ class App extends React.Component {
     });
   }
 
+  /**
+   * Callback qui permet de gérer la soumission de Formulaire
+   */
+  handleSubmit = (evt) => {
+    // On empêche le comportement par défaut du navigateur (Refresh de la page au submit).
+    evt.preventDefault();
+    console.log('bien reçu !');
+  }
+
   render() {
     return (
       <div id="app">
         <Header />
         <Module />
-        <Form fields={this.fields}/>
+        <Form onSubmit={this.handleSubmit} fields={this.fields}/>
         <Footer />
       </div>
     );

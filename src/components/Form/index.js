@@ -12,9 +12,10 @@ import PropTypes from 'prop-types';
 import './form.sass';
 
 const Form = ({
-  fields
+  fields,
+  onSubmit
 }) => (
-  <form>
+  <form onSubmit={onSubmit}>
     {fields()}
     <button>Créer</button>
   </form>

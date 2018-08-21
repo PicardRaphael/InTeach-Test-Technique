@@ -1,5 +1,5 @@
 {
-  "name": "react-modele",
+  "name": "InTeach",
   "private": false,
   "version": "1.1.0",
   "license": "MIT",
@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "babel-polyfill": "*",
+    "classnames": "^2.2.6",
     "react": "*",
     "react-dom": "*"
   }
