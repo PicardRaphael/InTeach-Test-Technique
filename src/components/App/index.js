@@ -117,6 +117,7 @@ class App extends React.Component {
     const data = [...this.state.data, newModule];
     this.setState({
       data,
+      title: '',
       view: 'modules'
     });
   }
@@ -143,7 +144,8 @@ class App extends React.Component {
     const test = md[0].title = title;
     this.setState({
       test,
-      ...this.state.data
+      ...this.state.data,
+      title: ''
     });
   }
 

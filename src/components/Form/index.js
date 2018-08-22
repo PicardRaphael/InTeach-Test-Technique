@@ -19,31 +19,30 @@ class Form extends React.Component {
   onSubmit = (evt) => {
     evt.preventDefault();
     const input = document.querySelector('input');
+    console.log(input.value);
     this.props.onSubmit(input.value);
     input.value = '';
   }
 
   render() {
     return (
-      <form>
-        <FormControl align='center' className='form-module'>
-          {this.props.fields}
-          <Button className='cancel' variant="outlined" color="secondary" onClick={this.props.onChangeView('modules')}>
-            Annuler
+      <FormControl align='center' className='form-module'>
+        {this.props.fields}
+        <Button className='cancel' variant="outlined" color="secondary" onClick={this.props.onChangeView('modules')}>
+          Annuler
+        </Button>
+        <div className='btn-creat' >
+          <Button
+            className='btn-creat'
+            variant="contained"
+            color="primary"
+            onClick={this.onSubmit}
+          >
+            <SaveIcon className='icon-creat' />
+          Ajouter
           </Button>
-          <div className='btn-creat' >
-            <Button
-              className='btn-creat'
-              variant="contained"
-              color="primary"
-              onClick={this.onSubmit}
-            >
-              <SaveIcon className='icon-creat' />
-            Ajouter
-            </Button>
-          </div>
-        </FormControl>
-      </form>
+        </div>
+      </FormControl>
     );
   };
 }
