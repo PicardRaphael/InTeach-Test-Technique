@@ -38,6 +38,9 @@ yarn start
 
 - WakaTime ([lien][5]) : Pour voir le nombre de temps que j'ai passé sur votre test
 
+## Architecture du logicel
+
+- Google Drive : [lien][6]
 
 ## Mot de la fin
 
@@ -45,8 +48,11 @@ J'ai vraiment pris beaucoup de plaisir à réaliser ce test.
 Je sais que le code peut être amélioré ainsi que certaines fonctionnalitées mais j'ai eu peu de temps pour réaliser le test sachant que mes journées sont chargées par les cours et challenges que nous devons réaliser. 
 De plus, c'est la première fois que j'utilisai Material-UI et j'ai du le prendre en main rapidement mais je pourrais optimiser son utilisation lorsque j'aurai plus de temps pour l'étudier.
 
+Pour l'architecture logicielle, je n'ai jamais vu comment celui-ci se réalise. Cependant vous trouverez sur le google drive [lien][6], ce qui est pour moi actuellement une architecture logicielle. Vu mon manque de temps, je n'ai pas pu me renseigner correctement sur internet mais je le ferrai quand j'aurai le temps. De plus je sais que si je réalise mon alternance, je le verrai en cours.
+
 [1]: https://yarnpkg.com/fr/
 [2]: https://webpack.js.org/
 [3]: https://material-ui.com/
 [4]: https://parceljs.org/
 [5]: https://wakatime.com/@e60d35d2-f0e3-42ea-b8e3-b1396bc03d40/projects/qicgrgxike?start=2018-08-16&end=2018-08-22
+[6]: https://drive.google.com/drive/folders/1kpLtdSZfrim4Y9LlR9n1deJfOAoJxJXz?usp=sharing
