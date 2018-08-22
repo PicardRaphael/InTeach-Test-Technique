@@ -36,6 +36,8 @@ yarn start
 
 - Design : Pour le design j'ai voulu utiliser 'Material-ui ([lien][3])' car je trouve qu'il est plus complémentaire avec React et suit les règles de google Material Design. J'ai cependant vu que vous utilisiez Bootstrap pour votre site internet et je peux aussi l'utilisé ayant déjà réaliser plusieurs projet avec.
 
+- WakaTime ([lien][5]) : Pour voir le nombre de temps que j'ai passé sur votre test
+
 
 ## Mot de la fin
 
@@ -47,3 +49,4 @@ De plus, c'est la première fois que j'utilisai Material-UI et j'ai du le prendr
 [2]: https://webpack.js.org/
 [3]: https://material-ui.com/
 [4]: https://parceljs.org/
+[5]: https://wakatime.com/@e60d35d2-f0e3-42ea-b8e3-b1396bc03d40/projects/qicgrgxike?start=2018-08-16&end=2018-08-22
