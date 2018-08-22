@@ -30,7 +30,6 @@ const FieldEdit = ({
         type={type}
         value={value}
         onChange={onChange}
-        placeholder={placeholder}
       />
     </React.Fragment>
   );

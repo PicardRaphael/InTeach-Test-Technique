@@ -16,6 +16,9 @@ import './form.sass';
  * Composant de présentation, qui gère la couche DOM.
  */
 class Form extends React.Component {
+  /**
+   * Callback qui permet de gérer le click sur le boutton ajouter
+   */
   onSubmit = (evt) => {
     evt.preventDefault();
     const input = document.querySelector('input');

@@ -16,10 +16,11 @@ import TextField from '@material-ui/core/TextField';
 import Done from '@material-ui/icons/Done';
 
 import './module.sass';
-import inputData from 'src/data/input-data';
 
 class Module extends React.Component {
-
+  /**
+   * Usine à Callback qui permet de gérer le click sur le boutton done qui valide l'édition du module
+   */
   callBackEditModule = (id) => (evt) => {
     evt.preventDefault();
     const input = document.querySelector('input');
@@ -27,6 +28,9 @@ class Module extends React.Component {
     input.value = '';
   }
 
+  /**
+   * Callback qui convertis les valeur de moduleJSX en JSX
+   */
   convertModuleToJSX = (mod) => (
     <Grid key={mod.id} item>
       <Card className='card-module'>
@@ -72,6 +76,9 @@ class Module extends React.Component {
     </Grid>
   );
 
+  /**
+   * Fonction qui réalise une boucle map sur nos data et apelle la fonction convertModuleToJSX
+   */
   moduleJSX = () => this.props.data.map(this.convertModuleToJSX);
 
   render() {

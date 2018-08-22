@@ -91,20 +91,25 @@ class App extends React.Component {
       );
     });
   }
+
+  /**
+   * Fonction
+   * but: Afficher l'input pour éditer un module
+   */
   fieldsEdit = () => {
-    return inputData.map(field => {
-      return (
-        <FieldEdit
-          key={field.name}
-          {...field}
-          value={this.state[field.name]}
-          onChange={this.handleInputChange}
-        />
-      )
-    });
+    console.log();
+    return (
+      <FieldEdit
+        name='title'
+        placeholder='Nouveau nom du module'
+        type='text'
+        value={this.state['title']}
+        onChange={this.handleInputChange}
+      />
+    );
   }
   /**
-   * Callback qui permet de gérer la soumission de Formulaire
+   * Callback qui permet de gérer la soumission de Formulaire de création
    */
   creatModule = (title) => {
     const allIds = this.state.data.map(mod => mod.id);
@@ -130,12 +135,19 @@ class App extends React.Component {
     this.setState({ data });
   }
 
+  /**
+   * Fonction
+   * but: afficher le formulaire d'édition du module
+   */
   showEditModule = id => () => {
     const module = document.getElementById(id);
     const form = module.lastChild;
     form.classList.add('display');
   }
 
+  /**
+   * Callback qui permet de gérer la soumission de Formulaire d'édition
+   */
   editModule = (title, id) => {
     const moduleHTML = document.getElementById(id);
     const formHTML = moduleHTML.lastChild;

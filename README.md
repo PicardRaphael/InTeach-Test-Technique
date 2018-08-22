@@ -37,6 +37,11 @@ yarn start
 - Design : Pour le design j'ai voulu utiliser 'Material-ui ([lien][3])' car je trouve qu'il est plus complémentaire avec React et suit les règles de google Material Design. J'ai cependant vu que vous utilisiez Bootstrap pour votre site internet et je peux aussi l'utilisé ayant déjà réaliser plusieurs projet avec.
 
 
+## Mot de la fin
+
+J'ai vraiment pris beaucoup de plaisir à réaliser ce test. 
+Je sais que le code peut être amélioré ainsi que certaines fonctionnalitées mais j'ai eu peu de temps pour réaliser le test sachant que mes journées sont chargées par les cours et challenges que nous devons réaliser. 
+De plus, c'est la première fois que j'utilisai Material-UI et j'ai du le prendre en main rapidement mais je pourrais optimiser son utilisation lorsque j'aurai plus de temps pour l'étudier.
 
 [1]: https://yarnpkg.com/fr/
 [2]: https://webpack.js.org/
