@@ -24,8 +24,14 @@ class Module extends React.Component {
   callBackEditModule = (id) => (evt) => {
     evt.preventDefault();
     const input = document.querySelector('input');
-    this.props.onSubmit(input.value, id);
-    input.value = '';
+    if (input.value === '') {
+      const moduleHTML = document.getElementById(id);
+      const formHTML = moduleHTML.lastChild;
+      formHTML.classList.remove('display');
+    } else {
+      this.props.onSubmit(input.value, id);
+      input.value = '';
+    }
   }
 
   /**
