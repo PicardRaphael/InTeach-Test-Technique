@@ -46,8 +46,10 @@ yarn start
 
 J'ai vraiment pris beaucoup de plaisir à réaliser ce test. 
 Je sais que le code peut être amélioré ainsi que certaines fonctionnalitées mais j'ai eu peu de temps pour réaliser le test sachant que mes journées sont chargées par les cours et challenges que nous devons réaliser. 
+
 De plus, c'est la première fois que j'utilisai Material-UI et j'ai du le prendre en main rapidement mais je pourrais optimiser son utilisation lorsque j'aurai plus de temps pour l'étudier.
 Je n'ai pas utilisé Redux car je commence tout juste de le voir en cours et je voulais vous rendre quelque chose de fonctionelle dans la deadline.
+
 Pour l'architecture logicielle, je n'ai jamais vu comment celui-ci se réalise. Cependant vous trouverez sur le google drive [lien][6], ce qui est pour moi actuellement une architecture logicielle. Vu mon manque de temps, je n'ai pas pu me renseigner correctement sur internet mais je le ferrai quand j'aurai le temps. De plus je sais que si je réalise mon alternance, je le verrai en cours.
 
 [1]: https://yarnpkg.com/fr/
