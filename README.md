@@ -38,7 +38,7 @@ yarn start
 
 - WakaTime ([lien][5]) : Pour voir le nombre de temps que j'ai passé sur votre test
 
-## Architecture du logicel
+## Architecture logicelle
 
 - Google Drive : [lien][6]
 
