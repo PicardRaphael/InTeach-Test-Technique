@@ -19,7 +19,6 @@ class Form extends React.Component {
   onSubmit = (evt) => {
     evt.preventDefault();
     const input = document.querySelector('input');
-    console.log(input.value);
     this.props.onSubmit(input.value);
     input.value = '';
   }

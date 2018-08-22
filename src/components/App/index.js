@@ -13,6 +13,7 @@ import Module from 'src/components/Module';
 import Form from 'src/components/Form';
 import Footer from 'src/components/Footer';
 import Field from 'src/components/Field';
+import FieldEdit from 'src/components/FieldEdit'
 
 /* Material-UI import */
 import Button from '@material-ui/core/Button';
@@ -90,7 +91,18 @@ class App extends React.Component {
       );
     });
   }
-
+  fieldsEdit = () => {
+    return inputData.map(field => {
+      return (
+        <FieldEdit
+          key={field.name}
+          {...field}
+          value={this.state[field.name]}
+          onChange={this.handleInputChange}
+        />
+      )
+    });
+  }
   /**
    * Callback qui permet de gérer la soumission de Formulaire
    */
@@ -117,6 +129,24 @@ class App extends React.Component {
     this.setState({ data });
   }
 
+  showEditModule = id => () => {
+    const module = document.getElementById(id);
+    const form = module.lastChild;
+    form.classList.add('display');
+  }
+
+  editModule = (title, id) => {
+    const moduleHTML = document.getElementById(id);
+    const formHTML = moduleHTML.lastChild;
+    formHTML.classList.remove('display');
+    const md = this.state.data.filter(mod => mod.id === id);
+    const test = md[0].title = title;
+    this.setState({
+      test,
+      ...this.state.data
+    });
+  }
+
   render() {
     const { view, data } = this.state;
     return (
@@ -140,8 +170,13 @@ class App extends React.Component {
             </Button>
           </Tooltip>
         )}
-        <Module data={data} onDeletModule={this.deletModule}/>
-
+        <Module
+          editFields={this.fieldsEdit()}
+          data={data}
+          onDeletModule={this.deletModule}
+          showEditModule={this.showEditModule}
+          onSubmit={this.editModule}
+          onChangeInput={this.handleInputChange}/>
         <Footer />
       </div>
     );

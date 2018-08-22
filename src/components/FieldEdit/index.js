@@ -9,9 +9,9 @@ import Input from '@material-ui/core/Input';
 import InputLabel from '@material-ui/core/InputLabel';
 
 // Styles et assets
-import './field.sass';
+import './fieldedit.sass';
 
-const Field = ({
+const FieldEdit = ({
   name,
   placeholder,
   type,
@@ -20,7 +20,7 @@ const Field = ({
 }) => {
   return (
     <React.Fragment>
-      <InputLabel className='label-input' htmlFor={name}>
+      <InputLabel className='label-editInput' htmlFor={name}>
         {placeholder}
       </InputLabel>
       <Input
@@ -36,7 +36,7 @@ const Field = ({
   );
 };
 
-Field.propTypes = {
+FieldEdit.propTypes = {
   name: PropTypes.string.isRequired,
   placeholder: PropTypes.string.isRequired,
   type: PropTypes.string,
@@ -44,8 +44,8 @@ Field.propTypes = {
   onChange: PropTypes.func.isRequired
 };
 
-Field.defaultProps = {
+FieldEdit.defaultProps = {
   value: '',
   type: 'text'
 };
-export default Field;
+export default FieldEdit;

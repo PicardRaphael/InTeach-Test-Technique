@@ -4,7 +4,7 @@ import './footer.sass';
 
 const Footer = () => (
   <footer>
-    <span>Test technique de Mr PICARD Raphaël.</span>
+    <p>Test technique de Mr PICARD Raphaël.</p>
   </footer>
 );
 
