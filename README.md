@@ -34,7 +34,7 @@ yarn start
 
 - Webpack ([lien][2]) : J'utilise webpack pour "bundler" car il permet de transpiler/compiler le code pour qu'il soit valide pour une machine et qu'il soit compatible avec les anciennes versions de js grâce à Babel.Cela nous permet aussi d'avoir un 'serveur' de production. Je le préfère à Parcel ([lien][4]) car il est plus configurable et nous l'utilisons en cours.
 
-- Design : Pour le design j'ai voulu utiliser 'Material-ui ([lien][3])' car je trouve qu'il est plus complémentaire avec React et suit les règles de google Material Design. J'ai cependant vu que vous utilisiez Bootstrap pour votre site internet et je peux aussi l'utilisé ayant déjà réaliser plusieurs projet avec.
+- Design : Pour le design j'ai voulu utiliser 'Material-ui ([lien][3])' car je trouve qu'il est plus complémentaire avec React et suit les règles de google Material Design. J'ai cependant vu que vous utilisiez Bootstrap pour votre site internet et je peux aussi l'utiliser ayant déjà réalisé plusieurs projets avec.
 
 - WakaTime ([lien][5]) : Pour voir le nombre de temps que j'ai passé sur votre test
 
