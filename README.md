@@ -14,7 +14,7 @@ Bonus 4 : Utiliser Redux-Saga
 Bonne chance !
 ```
 
-## Récupérez une copie de mon test :
+## Pour récupérer une copie de mon test :
 
 ```
 git clone git@github.com:PicardRaphael/InTeach-Test-Technique-.git
