@@ -17,6 +17,7 @@ import inputData from 'src/data/input-data';
 
 // Styles et assets
 import './form.sass';
+
 /**
  * Composant de présentation, qui gère la couche DOM.
  */

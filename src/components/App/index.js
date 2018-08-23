@@ -7,6 +7,7 @@ import axios from 'axios';
 /**
  * Local import
  */
+
 // Composants
 import Header from 'src/components/Header';
 import Modules from 'src/components/Modules';
@@ -18,8 +19,7 @@ import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import Tooltip from '@material-ui/core/Tooltip';
 
-// Data
-import inputData from 'src/data/input-data';
+// Data modules
 import modules from 'src/data/modules';
 
 // Styles et assets

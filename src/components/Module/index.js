@@ -1,7 +1,13 @@
+/**
+ * Import
+ */
 import React from 'react';
-import PropTypes from 'prop-types';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 
+/**
+ * Local import
+ */
 import FieldEdit from 'src/components/FieldEdit';
 
 // Material-UI import
@@ -18,6 +24,7 @@ import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import Done from '@material-ui/icons/Done';
 
+// Styles et assets
 import './module.sass';
 
 class Module extends React.Component {

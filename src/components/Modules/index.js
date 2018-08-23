@@ -1,6 +1,14 @@
+/**
+ * Import
+ */
 import React from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * Local import
+ */
+
+// Composants
 import Module from 'src/components/Module';
 
 // Material-UI import
