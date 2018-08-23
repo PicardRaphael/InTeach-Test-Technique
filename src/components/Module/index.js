@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import axios from 'axios';
 
-/* Material-UI import */
+import FieldEdit from 'src/components/FieldEdit';
+
+// Material-UI import
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
@@ -18,83 +21,100 @@ import Done from '@material-ui/icons/Done';
 import './module.sass';
 
 class Module extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      edit: false,
+      title: this.props.module.title
+    };
+  }
+
   /**
-   * Usine à Callback qui permet de gérer le click sur le boutton done qui valide l'édition du module
+   * Usine à callback qui permet de gérer le click sur le boutton done qui valide l'édition du module
    */
   callBackEditModule = (id) => (evt) => {
     evt.preventDefault();
     const input = document.querySelector('input');
-    if (input.value === '') {
-      const moduleHTML = document.getElementById(id);
-      const formHTML = moduleHTML.lastChild;
-      formHTML.classList.remove('display');
-    } else {
-      this.props.onSubmit(input.value, id);
-      input.value = '';
-    }
+    this.props.onSubmit(input.value, id);
+    input.value = '';
+    this.setState({
+      edit: false
+    });
   }
 
   /**
-   * Callback qui convertis les valeur de moduleJSX en JSX
+   * Usine à callback qui change de vue React. Au passage, on ajoute une entrée dans l'historique
+   * de navigation, en stockant la vue au sens React vers laquelle on se dirige.
    */
-  convertModuleToJSX = (mod) => (
-    <Grid key={mod.id} item>
-      <Card className='card-module'>
-        <CardContent>
-          <div id={mod.id}>
-            <Typography variant='headline' align='center'>
-              {mod.title}
-            </Typography>
-            <FormControl className='form-edit'>
-              {this.props.editFields}
-              <IconButton
-                variant="fab"
-                aria-label="Done"
-                className='done-icon'
-                onClick={this.callBackEditModule(mod.id)}>
-                <Done/>
-              </IconButton>
-            </FormControl>
-          </div>
-          <div>
-            <IconButton
-              className='icon'
-              variant="fab"
-              aria-label="Delete"
-              color='secondary'
-              onClick={this.props.onDeletModule(mod.id)}>
-              <DeleteIcon />
-            </IconButton>
-            <IconButton
-              className='icon'
-              variant="fab"
-              aria-label="Edit"
-              color="primary"
-              onClick={this.props.showEditModule(mod.id)}>
-              <Icon>edit_icon</Icon>
-            </IconButton>
-          </div>
-          <Button size="small" color="primary" className='lessons'>
-          leçons : {mod.lessons.length}
-          </Button>
-        </CardContent>
-      </Card>
-    </Grid>
-  );
+  editView = id => () => {
+    const browserState = { edit: true };
+    window.history.pushState(browserState, null, `/module/${id}/edit`);
+    this.setState(browserState);
+  };
 
   /**
-   * Fonction qui réalise une boucle map sur nos data et apelle la fonction convertModuleToJSX
+   * Callback qui permet de gérer les Input
+   * but :  modifier le state suivant ce qui est inscrit dans le input
    */
-  moduleJSX = () => this.props.data.map(this.convertModuleToJSX);
+  handleInputChange = (evt) => {
+    const { name, value } = evt.target;
+    this.setState({
+      [name]: value
+    });
+  }
 
   render() {
+    const { edit } = this.state;
     return (
-      <Grid container className='modules'>
-        <Grid item xs={12}>
-          <Grid container justify="center" spacing={32}>
-            {this.moduleJSX()}
-          </Grid>
-        </Grid>
+      <Grid key={this.props.module.id} item>
+        <Card className='card-module'>
+          <CardContent>
+            <div id={this.props.module.id}>
+              <Typography variant='headline' align='center'>
+                {this.props.module.title}
+              </Typography>
+              { edit === true && (
+                <FormControl id={this.props.module.id} className='form-edit'>
+                  <FieldEdit
+                    name='title'
+                    placeholder='Nouveau nom du module'
+                    type='text'
+                    value={this.state.title}
+                    onChange={this.handleInputChange}
+                  />
+                  <IconButton
+                    variant="fab"
+                    aria-label="Done"
+                    className='done-icon'
+                    onClick={this.callBackEditModule(this.props.module.id)}>
+                    <Done/>
+                  </IconButton>
+                </FormControl>
+              )}
+            </div>
+            <div>
+              <IconButton
+                className='icon'
+                variant="fab"
+                aria-label="Delete"
+                color='secondary'
+                onClick={this.props.onDeleteModule(this.props.module.id)}>
+                <DeleteIcon />
+              </IconButton>
+              <IconButton
+                className='icon'
+                variant="fab"
+                aria-label="Edit"
+                color="primary"
+                onClick={this.editView(this.props.module.id)}>
+                <Icon>edit_icon</Icon>
+              </IconButton>
+            </div>
+            <Button size="small" color="primary" className='lessons'>
+              leçons : {this.props.module.lessons.length}
+            </Button>
+          </CardContent>
+        </Card>
       </Grid>
     );
   };

@@ -5,7 +5,8 @@ import React from 'react';
 /**
  * Local import
  */
-/* Material-UI import */
+
+// Material-UI import
 import FormControl from '@material-ui/core/FormControl';
 import Button from '@material-ui/core/Button';
 import SaveIcon from '@material-ui/icons/Save';

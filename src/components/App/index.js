@@ -9,20 +9,19 @@ import axios from 'axios';
  */
 // Composants
 import Header from 'src/components/Header';
-import Module from 'src/components/Module';
+import Modules from 'src/components/Modules';
 import Form from 'src/components/Form';
 import Footer from 'src/components/Footer';
 import Field from 'src/components/Field';
-import FieldEdit from 'src/components/FieldEdit'
 
-/* Material-UI import */
+// Material-UI import
 import Button from '@material-ui/core/Button';
 import AddIcon from '@material-ui/icons/Add';
 import Tooltip from '@material-ui/core/Tooltip';
 
 // Data
 import inputData from 'src/data/input-data';
-import data from 'src/data/data';
+import modules from 'src/data/modules';
 
 // Styles et assets
 import './app.sass';
@@ -31,9 +30,14 @@ import './app.sass';
  * Code
  */
 class App extends React.Component {
+  /**
+   * Initialisation de mon state
+   * view: gère la vue courent de l'application
+   * data: gère les datas du fichier data.js qui se situe dans le dossier data
+  */
   state = {
     view: 'modules',
-    data
+    modules
   };
 
   /**
@@ -93,82 +97,56 @@ class App extends React.Component {
   }
 
   /**
-   * Fonction
-   * but: Afficher l'input pour éditer un module
-   */
-  fieldsEdit = () => {
-    console.log();
-    return (
-      <FieldEdit
-        name='title'
-        placeholder='Nouveau nom du module'
-        type='text'
-        value={this.state['title']}
-        onChange={this.handleInputChange}
-      />
-    );
-  }
-  /**
    * Callback qui permet de gérer la soumission de Formulaire de création
    */
-  creatModule = (title) => {
-    const allIds = this.state.data.map(mod => mod.id);
+  createModule = (title) => {
+    const allIds = this.state.modules.map(mod => mod.id);
     const newId = allIds.length ? Math.max(...allIds) + 1 : 0;
     const newModule = {
       id: newId,
       title: title,
       lessons: []
     };
-    const data = [...this.state.data, newModule];
+    const modules = [...this.state.modules, newModule];
     this.setState({
-      data,
+      modules,
       title: '',
       view: 'modules'
     });
+    window.history.pushState(null, null, '/view/modules');
   }
 
   /**
    * Callback qui permet de gérer la supression d'un module
    */
-  deletModule = id => () => {
-    const data = this.state.data.filter(mod => mod.id !== id);
-    this.setState({ data });
-  }
-
-  /**
-   * Fonction
-   * but: afficher le formulaire d'édition du module
-   */
-  showEditModule = id => () => {
-    const module = document.getElementById(id);
-    const form = module.lastChild;
-    form.classList.add('display');
+  deleteModule = id => () => {
+    const modules = this.state.modules.filter(mod => mod.id !== id);
+    this.setState({ modules });
   }
 
   /**
    * Callback qui permet de gérer la soumission de Formulaire d'édition
    */
   editModule = (title, id) => {
-    const moduleHTML = document.getElementById(id);
-    const formHTML = moduleHTML.lastChild;
-    formHTML.classList.remove('display');
-    const md = this.state.data.filter(mod => mod.id === id);
+    const md = this.state.modules.filter(mod => mod.id === id);
     const test = md[0].title = title;
     this.setState({
       test,
       ...this.state.data,
-      title: ''
+      title: '',
+      view: 'modules'
     });
+    window.history.pushState(null, null, '/view/modules');
   }
 
   render() {
-    const { view, data } = this.state;
+    const { view, modules } = this.state;
     return (
       <div id="app">
         <Header />
         { view === 'form-modules' && (
           <Form
-            onSubmit={this.creatModule}
+            onSubmit={this.createModule}
             fields={this.fields()}
             onChangeView={this.changeView}/>
         )}
@@ -184,13 +162,11 @@ class App extends React.Component {
             </Button>
           </Tooltip>
         )}
-        <Module
-          editFields={this.fieldsEdit()}
-          data={data}
-          onDeletModule={this.deletModule}
-          showEditModule={this.showEditModule}
+        <Modules
+          modules={modules}
+          onDeleteModule={this.deleteModule}
           onSubmit={this.editModule}
-          onChangeInput={this.handleInputChange}/>
+        />
         <Footer />
       </div>
     );
