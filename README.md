@@ -1,7 +1,5 @@
 # Test technique Raphael Picard pour InTeach
 
-Vous trouvez ci-joint le test technique que vous m'avez demandé :
-
 ```
 Développez une petite application web (en JS) pour proposer aux utilisateurs une interface de gestion de modules de formation. Les contraintes sont les suivantes:
 - Charger les données depuis une fixture (au moins 5 modules)
