@@ -12,7 +12,6 @@ import Header from 'src/components/Header';
 import Modules from 'src/components/Modules';
 import Form from 'src/components/Form';
 import Footer from 'src/components/Footer';
-import Field from 'src/components/Field';
 
 // Material-UI import
 import Button from '@material-ui/core/Button';
@@ -69,34 +68,6 @@ class App extends React.Component {
   }
 
   /**
-   * Callback qui permet de gérer les Input
-   * but :  modifier le state suivant ce qui est inscrit dans le input
-   */
-  handleInputChange = (evt) => {
-    const { name, value } = evt.target;
-    this.setState({
-      [name]: value
-    });
-  }
-
-  /**
-   * Fonction qui permet de boucler sur le fichier contenant les inputs
-   * but: Afficher le nombre de input inscrit dans input-data
-   */
-  fields = () => {
-    return inputData.map(field => {
-      return (
-        <Field
-          key={field.name}
-          {...field}
-          value={this.state[field.name]}
-          onChange={this.handleInputChange}
-        />
-      );
-    });
-  }
-
-  /**
    * Callback qui permet de gérer la soumission de Formulaire de création
    */
   createModule = (title) => {
@@ -110,7 +81,6 @@ class App extends React.Component {
     const modules = [...this.state.modules, newModule];
     this.setState({
       modules,
-      title: '',
       view: 'modules'
     });
     window.history.pushState(null, null, '/view/modules');
@@ -133,7 +103,6 @@ class App extends React.Component {
     this.setState({
       test,
       ...this.state.data,
-      title: '',
       view: 'modules'
     });
     window.history.pushState(null, null, '/view/modules');
@@ -147,7 +116,6 @@ class App extends React.Component {
         { view === 'form-modules' && (
           <Form
             onSubmit={this.createModule}
-            fields={this.fields()}
             onChangeView={this.changeView}/>
         )}
         { view === 'modules' && (

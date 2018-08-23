@@ -12,6 +12,7 @@ import InputLabel from '@material-ui/core/InputLabel';
 import './field.sass';
 
 const Field = ({
+  refInput,
   name,
   placeholder,
   type,
@@ -24,6 +25,7 @@ const Field = ({
         {placeholder}
       </InputLabel>
       <Input
+        inputRef={refInput}
         className='input-field'
         id={name}
         name={name}

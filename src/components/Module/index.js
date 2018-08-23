@@ -34,9 +34,8 @@ class Module extends React.Component {
    */
   callBackEditModule = (id) => (evt) => {
     evt.preventDefault();
-    const input = document.querySelector('input');
-    this.props.onSubmit(input.value, id);
-    input.value = '';
+    this.props.onSubmit(this.title.value, id);
+    this.title.value = '';
     this.setState({
       edit: false
     });
@@ -76,6 +75,7 @@ class Module extends React.Component {
               { edit === true && (
                 <FormControl id={this.props.module.id} className='form-edit'>
                   <FieldEdit
+                    refInput={input => (this.title = input)}
                     name='title'
                     placeholder='Nouveau nom du module'
                     type='text'
