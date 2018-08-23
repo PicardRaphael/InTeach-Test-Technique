@@ -21,7 +21,7 @@ Bonne chance !
 ```
 git clone git@github.com:PicardRaphael/InTeach-Test-Technique-.git
 
-cd InTeach-Test-Technique-
+cd InTeach-Test-Technique
 
 yarn
 
